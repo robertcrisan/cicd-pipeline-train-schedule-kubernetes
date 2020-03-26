@@ -1,2 +1,2 @@
 FROM debian:latest
-echo ‘CMD ["/bin/echo", "HELLO WORLD...."]
+CMD ["/bin/echo", "HELLO WORLD...."]
