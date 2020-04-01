@@ -47,6 +47,7 @@ pipeline {
                 milestone(1)
                 kubernetesDeploy(
                     ssh: [sshCredentialsId: 'kube_ssh_creds', sshServer: '192.168.3.217'],
+                    kubeConfig: [path: '/home/k8s/.kube/config'],
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
