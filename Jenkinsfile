@@ -46,10 +46,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 kubernetesDeploy(
-                    ssh: {
-                        sshCredentialsId: 'kube_ssh_creds',
-                        sshServer: '192.168.3.217:22'
-                    }
+                    ssh: [sshCredentialsId: 'kube_ssh_creds', sshServer: '192.168.3.217'],
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
                 )
