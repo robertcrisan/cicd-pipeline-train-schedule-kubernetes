@@ -46,7 +46,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 kubernetesDeploy(
-                    //credentialsType: 'SSH',
+                    credentialsType: 'SSH',
                     //kubeconfig: '/home/k8s/.kube/config',
                     ssh: [sshCredentialsId: 'kube_ssh_creds', sshServer: '192.168.3.217'],
                     kubeConfig: [path: 'config'],
