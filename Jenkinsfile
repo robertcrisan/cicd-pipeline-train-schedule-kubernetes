@@ -43,8 +43,6 @@ pipeline {
                 branch 'master'
             }
             steps {
-                input 'Deploy to Production?'
-                milestone(1)
                 kubernetesDeploy(
                     credentialsType: 'SSH',
                     //kubeconfig: '/home/k8s/.kube/config',
