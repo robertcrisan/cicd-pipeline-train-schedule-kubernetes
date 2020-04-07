@@ -43,12 +43,15 @@ pipeline {
                 branch 'master'
             }
             steps {
+        stage('DeployToProduction') {
+            when {
+                branch 'master'
+            }
+            steps {
+                input 'Deploy to Production?'
+                milestone(1)
                 kubernetesDeploy(
-                    credentialsType: 'SSH',
-                    //kubeconfig: '/home/k8s/.kube/config',
-                    ssh: [sshCredentialsId: 'kube_ssh_creds', sshServer: '192.168.3.217'],
-                    kubeConfig: [path: '/root/.kube/config'],
-                    //kubeconfigId: 'kubeconfig',
+                    kubeconfigId: 'Kubeconfig',
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
                 )
