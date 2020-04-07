@@ -47,7 +47,7 @@ pipeline {
                     credentialsType: 'SSH',
                     //kubeconfig: '/home/k8s/.kube/config',
                     ssh: [sshCredentialsId: 'kube_ssh_creds', sshServer: '192.168.3.217'],
-                    kubeConfig: [path: '/home/k8s/.kube/config'],
+                    kubeConfig: [path: '/root/.kube/config'],
                     //kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
