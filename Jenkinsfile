@@ -38,13 +38,13 @@ pipeline {
                 }
             }
         }
-        stage ('Trigger DockerBenchSecurity Compliance') {
+        stage('Trigger DockerBenchSecurity Compliance') {
     		echo "Trigger DockerBenchSecurity Compliance"
             build job: 'dockerbenchsecurity',
             quietPeriod: 0,
             wait: false
         }
-        stage ('Triggering Kube-Bench Security Compliance') {
+        stage('Triggering Kube-Bench Security Compliance') {
     		echo "Triggering Kube-Bench Security Compliance"
             build job: 'kube',
             quietPeriod: 0,
