@@ -39,12 +39,11 @@ pipeline {
             }
         }
         stage('Trigger DockerBenchSecurity Compliance') {
-    		echo "Trigger DockerBenchSecurity Compliance"
-            build job: 'dockerbenchsecurity'
-        }
-        stage('Triggering Kube-Bench Security Compliance') {
-    		echo "Triggering Kube-Bench Security Compliance"
-            build job: 'kube'
+            steps {
+    		    echo "Trigger DockerBenchSecurity Compliance"
+                build job: 'dockerbenchsecurity'
+            }
+
         }
         stage('DeployToProduction') {
             when {
