@@ -40,15 +40,10 @@ pipeline {
         }
         stage('Trigger DockerBenchSecurity Compliance') {
             steps {
-               waitUntil {
-                 try {
-                    echo "Trigger DockerBenchSecurity Compliance"
-                    build job: 'dockerbenchsecurity'
-                 } catch(error) {
-                    input "Retry the job ?"
-                    false
-                 }
-               }
+             retry(3) {
+                echo "Trigger DockerBenchSecurity Compliance"
+                build job: 'dockerbenchsecurity'
+                }
             }
         }
         stage('DeployToProduction') {
