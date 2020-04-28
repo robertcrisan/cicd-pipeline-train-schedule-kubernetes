@@ -38,6 +38,13 @@ pipeline {
                 }
             }
         }
+        stage('Trigger DockerBenchSecurity Compliance') {
+            steps {
+    		    echo "Trigger DockerBenchSecurity Compliance"
+                build job: 'dockerbenchsecurity'
+            }
+
+        }
         stage('DeployToProduction') {
             when {
                 branch 'master'
