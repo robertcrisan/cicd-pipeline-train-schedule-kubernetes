@@ -42,7 +42,7 @@ pipeline {
             steps {
              retry(3) {
                 echo "Trigger DockerBenchSecurity Compliance"
-                build job: 'dockerbenchsecurity'
+                build job: 'bench-security'
                 }
             }
         }
