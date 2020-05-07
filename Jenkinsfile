@@ -38,11 +38,13 @@ pipeline {
                 }
             }
         }
-        stage('Trigger DockerBenchSecurity Compliance') {
+        stage('Trigger DockerBenchSecurity and Kube-Bench Compliance') {
             steps {
              retry(3) {
                 echo "Trigger DockerBenchSecurity Compliance"
                 build job: 'bench-security'
+                echo "Trigger Kube-Bench Compliance"
+                build job: 'kube'
                 }
             }
         }
