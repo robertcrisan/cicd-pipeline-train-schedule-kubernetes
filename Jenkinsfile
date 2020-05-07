@@ -43,6 +43,8 @@ pipeline {
              retry(3) {
                 echo "Trigger DockerBenchSecurity Compliance"
                 build job: 'bench-security'
+                }
+             retry(3) {
                 echo "Trigger Kube-Bench Compliance"
                 build job: 'kube'
                 }
